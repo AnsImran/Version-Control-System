@@ -1,0 +1,194 @@
+git log								[Gives you a log history of all the commits]
+
+git init
+
+git status
+
+git add .                    					[clones and stages all files in the current branch]
+
+git add first.txt
+
+git add *.txt                  					[clones and stages all .txt extension files]
+
+git commit -m "your change message"                       	[commits all the files the stage area]
+
+git reset							[unstages all the files in the stage area]
+
+git reset hard							[unstages and restores the modification to last commit, to all files, whether they are staged or not]
+
+git branch							[The names of branches]
+
+git branch -v							[Names with little bit of details of branches]
+
+git status							[tells you about your current branch]
+
+git branch <name of new branch>					[creates a new branch in the current branch]
+
+git checkout <branch name u want to switch to>			[switches your branch]
+
+git log master..dev						[changes which are present in dev but not present in master]
+
+git log dev..master						[changes which are present in master but not present in dev]
+
+git merge dev							[merges/exports the changes of dev branch to your current branch]
+
+git log								[shows all commits from all merged branches]
+
+git stash							[Temporarily saves the changes, does not commits the changes, just temporarily saves the changes, keeps your working tree clean, changes are also removed from file, changes are saved somewhere else, you can access the changes]
+
+git stash list							[Tells you how many stashes u have]
+
+git stash pop							[Applies the last stash of all the stashes, to your file and removes the last stash from the list]
+
+git stash <give any name u want for these changes>
+
+git stash apply < stash name e.g stash@{0,1,2,..., etc} >	[If you want to apply a particular stash]
+
+
+
+
+git clone <url of your github repository>			[clones your github repo on your local device. cloning is done on the folder in which you start the cmd]
+
+git status							[Tells you whether your local repo is up to date with the remote repository or not]
+
+git status							[Tells you how much ahead (extra no. of commits) your branch is, as compared to remote repo]
+
+git log								[shows the extra commits that are present in your current branch, but are not present in remote repo]
+
+git push <name of remote repository and branch e.g origin(repo name) master(branch name)>	[pushes the changes to the specified remote repository and branch]
+
+git status							[Does NOT tell you how much your local repo is behind the remote repo]
+
+git fetch							[fetches the changes present in remote repo, but absent in local repo. BUT does not applies the changes]
+
+git merge							[Applies the changes to local repo, which were fetched earlier from remote repo]
+
+git pull							[fetches and applies changes to local repo which were present in remote repository but absent from local repository]
+
+git remote -v							[Tells you which repository/repositories* is/are connected with your local repo]
+
+git remote add <local name which you want to assign to your remote repo> <url of your remote repo>	[connects your remote repo with your local repo]
+
+git remote -v							[Gives you the url (url of remote repo) of repo from/to which you can fetch/push changes]
+
+git push -u <name of the remote repo to which you want to push changes> <name of the branch of the remote repo to which you want to push changes>	[After connecting your remote repo to your local repo (using 'git remote add <> <>' ), FIRST TIME you have to use this command to push changes]
+
+git push <name of the remote repo to which you want to push changes> <name of the branch of the remote repo to which you want to push changes>		[After using 'git push -u <> <>' for the first time, now use this command everytime to push changes to remote repo]
+
+
+git branch -d <branch name>					[locally deletes a branch]
+
+git branch -dr <local name of your online repository> <branch name>			[deletes the branch from LOCAL repo]
+		
+git pull							[The branch deleted the previous command will be again created in our local repo]
+
+git push <local name of remote repo> --delete <name of branch>				[deletes the specified branch from ONLINE repo] 
+
+
+git checkout HEAD <name of file>				[Discards all of the changes in a file]
+
+git reset --hard HEAD						[Discards all of the changes in all files]
+
+git revert <commit hash: first 7 characters of commit hash>	[creates a new commit, it reverts the changes of the specified commit]
+
+git reset --hard <commit hash>					[if you are at commit #5 (c5), and u use c2 in this command, then this command will delete all your history going back to c2, everything will be restored to c2, all of the history above c2 will also be deleted]
+
+git reset --keep <commit hash>					[if you are at commit #5 (c5), and u use c2 in this command, then this command will delete all your history going back to c2, however it'll keep the changes of c3, c4, and c5, it'll show these changes as uncommitted changes]
+
+
+git rebase <branch name, from which you want to pull changes>		[while satnding at the branch to which you want TO pull changes, enter this command with the name of the branch FROM which you want to pull changes]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
