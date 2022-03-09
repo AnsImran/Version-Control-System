@@ -8,7 +8,7 @@ git add .                    					[clones and stages all files in the current br
 
 git add first.txt
 
-git add *.txt                  					[clones and stages all .txt extension files]
+git add *.txt                  					[Stages all .txt extension files]
 
 git commit -m "your change message"                       	[commits all the files the stage area]
 
