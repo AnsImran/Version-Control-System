@@ -10,19 +10,34 @@ git add first.txt
 
 git add *.txt                  					[Stages all .txt extension files]
 
-git commit -m "your change message"                       	[commits all the files the stage area]
+git commit -m "your commit message"                       	[commits all the files in the stage area]
 
-git reset							[unstages all the files in the stage area]
+git reset							[unstages all the files in the stage area] [changes remove ni hoon gay, sirf unstage ho jayain gi files] smart git mn unstage krna isi kaam k equivalent hoga
 
-git reset hard							[unstages and restores the modification to last commit, to all files, whether they are staged or not]
 
-git branch							[The names of branches]
+git reset --hard                                      [unstage bhi kray ga (jo cheezain abhi commit ni huieen), or changes bhi discsard kr day ga, last commit par vapis lay jaye ga]
+                                                      [files unstaged huieen already tu bhi ye changes ura day ga] smart git equivalent'll be " Discard Button"
+
+.gitignore [Folder]                                   [jo file tracking par lgi hui hay, os par .gitignore kaam ni kray ga, ye only untracked files par kaam krta hay]
+									*.extension (all files with the specified extension will be ignored) , third.txt (only the specific file will be ignored) ,
+									path/to/file.extension , path/to/file.extension , /path/to/folder/ (whole specified folder will be ignored)
+									e.g.  /new folder/
+
+
+git reset --hard							[unstages and restores the modification to last commit, to all files, whether they are staged or not]
+
+git branch							[gives you the names of branches] agar aap nay koi branch ni bhi bnai hui, tb bhi by default, 'master' branch mojood hogi, branches are mandatory in git, not optional
 
 git branch -v							[Names with little bit of details of branches]
 
 git status							[tells you about your current branch]
 
-git branch <name of new branch>					[creates a new branch in the current branch]
+git branch <name of new branch>					[creates a new branch from the current branch]
+
+
+['Head' aap ko current branch ka btata hy, agr head, master, pr hy, tu current branch master hy, agar head, dev, pr hay, tu current branch dev hay]
+[Head k bad jis pehli branch ka naam likha hua aata hay, aap os branch pr mojood hty ho. commay k bad agr koi 2nd naam aaye, tu ye 2sri branch ap ki current branch say identical hy?]
+
 
 git checkout <branch name u want to switch to>			[switches your branch]
 
@@ -30,9 +45,20 @@ git log master..dev						[changes which are present in dev but not present in ma
 
 git log dev..master						[changes which are present in master but not present in dev]
 
-git merge dev							[merges/exports the changes of dev branch to your current branch]
+git merge <branch #>							[merges/exports the changes of 'branch #' to your current branch] changes which are present in branch # but not present in your current branch
+
+
+[agar same file main d/f lines par, d/f branches mn changes huye hoon, tb conflict ni aata, but agar changes, same line par hoon, d/f branches mn tu conflict
+aa jata hay. aap line1 ko b1 mn change kr do, totaly remove kr k kuch naya likho, line2 ko b2 mn chnage kro, totally remove kr k kuch new likho
+, jb merge kro gay tu koi conflict ni aaye ga, halan k line1, b1 vli line1 b2 vli say difeerent hay, still no conflict.
+shirt ye hy k change sirf aik hi branch pr vaqiya hua ho, think about it it is very simple and intuitive]]
+
 
 git log								[shows all commits from all merged branches]
+
+(jab 2 branches hoon 'b1' & 'b2', or 2non main hi changes mojood hoon, ab agar aap 'b2' ko 'b1' mn merge kro gay
+tu aap ko aik additional commit ' merge branch 'b2' ' log history mn show hoga AND VICE VERSA)
+(then agar aap 'b1' ko 'b2' mn merge kr do, tu ye pichlay vala commit bhi vahan transfer ho jaye ga))
 
 git stash							[Temporarily saves the changes, does not commits the changes, just temporarily saves the changes, keeps your working tree clean, changes are also removed from file, changes are saved somewhere else, you can access the changes]
 
@@ -42,9 +68,14 @@ git stash pop							[Applies the last stash of all the stashes, to your file and
 
 git stash <give any name u want for these changes>
 
-git stash apply < stash name e.g stash@{0,1,2,..., etc} >	[If you want to apply a particular stash]
+git stash apply < stash name e.g stash@{0,1,2,..., etc} >	[If you want to apply a particular stash.](it does not removes the stash after applying it)
+
+git stash clear                                 [clears all the stashes]
 
 
+
+
+Downloading and connecting an online repo on you pc
 
 
 git clone <url of your github repository>			[clones your github repo on your local device. cloning is done on the folder in which you start the cmd]
@@ -57,7 +88,7 @@ git log								[shows the extra commits that are present in your current branch,
 
 git push <name of remote repository and branch e.g origin(repo name) master(branch name)>	[pushes the changes to the specified remote repository and branch]
 
-git status							[Does NOT tell you how much your local repo is behind the remote repo]
+git status							[Does NOT tell you how much your local repo is behind the remote repo, u have to call git fetch first. after that it'll tell u.]
 
 git fetch							[fetches the changes present in remote repo, but absent in local repo. BUT does not applies the changes]
 
@@ -67,20 +98,46 @@ git pull							[fetches and applies changes to local repo which were present in 
 
 git remote -v							[Tells you which repository/repositories* is/are connected with your local repo]
 
+
+
+
+Uploading and Connecting your locally created repo with an online repo 
+
+
+
 git remote add <local name which you want to assign to your remote repo> <url of your remote repo>	[connects your remote repo with your local repo]
 
 git remote -v							[Gives you the url (url of remote repo) of repo from/to which you can fetch/push changes]
 
+git remote show origin                                [remote repositorieS ki tamam details btata hay, fetch krain gay tu kahan say fetch hoga, push krain gay tu kia hoga, tmaam branches ka bhi btata hay]
+									[aap ki remote repository ki pori summary aa ri hti hay]
+
+
 git push -u <name of the remote repo to which you want to push changes> <name of the branch of the remote repo to which you want to push changes>	[After connecting your remote repo to your local repo (using 'git remote add <> <>' ), FIRST TIME you have to use this command to push changes]
+																									(The -u flag establishes a tracking connection b/w our remote and local repos)
+																									(smart git mn remote repo ko local k sath connect krnay k liye remote valay tab mn jao vahan say connect krnay ka option
+																									mil jaye ga. 2ndly chnages push krnay k liye simply push ka button press kro, that's it)
+																									(agar aap nay koi branch locally bnai hay or vo branch abhi online repo par ni hay, tu is command k zarye is new branch ko bhi
+																									push kr sktay hain, bas repo ka naam do, jis mn push krna hay, branch ka naam do JIS KO push krna hay!)
+																									(smart git mn yei kaam krna ho, tu locally created new branch par jao, vahan say push press kro or yei sara kaam ho jaye ga))
+
+
 
 git push <name of the remote repo to which you want to push changes> <name of the branch of the remote repo to which you want to push changes>		[After using 'git push -u <> <>' for the first time, now use this command everytime to push changes to remote repo]
-
+(agar aap nay koi branch locally bnai hay or vo branch abhi online repo par ni hay)
 
 git branch -d <branch name>					[locally deletes a branch]
 
 git branch -dr <local name of your online repository> <branch name>			[deletes the branch from LOCAL repo]
 		
+
 git pull							[The branch deleted the previous command will be again created in our local repo]
+(aap nay online koi new branch bnai, aap osay pull krna chahtay hain? kisi bhi brnch par ja kar, pull krain.
+online created branch online repo ki branches ki list mn show hna shuru ho jaye gi, os par checkout krain,. ye osay locally
+pull kr k checkout bhi kr day ga)
+
+
+
 
 git push <local name of remote repo> --delete <name of branch>				[deletes the specified branch from ONLINE repo] 
 
@@ -102,6 +159,10 @@ git rebase <branch name, from which you want to pull changes>		[while satnding a
 
 bla bla bla
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+55 remote repo, demo with smart git
 
 
 
