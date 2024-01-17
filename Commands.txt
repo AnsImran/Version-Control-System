@@ -1,3 +1,5 @@
+hi! testing
+
 git log								[Gives you a log history of all the commits]
 
 git init
